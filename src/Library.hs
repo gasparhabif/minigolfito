@@ -123,16 +123,9 @@ cuantosObstaculos :: [Obstaculo] -> Tiro -> Number
 cuantosObstaculos obstaculos tiro = length $ takeWhile (\obstaculo -> (obstaculo tiro) /= tiroFrenado) obstaculos   
 
 paloMasUtil :: Jugador -> [Obstaculo] -> Palo
-paloMasUtil persona obstaculos = seleccionarPaloParaObstaculos palos persona obstaculos
+paloMasUtil persona obstaculos = maximoSegun (cuantosObstaculos obstaculos.(flip golpe) persona) palos
 
-seleccionarPaloParaObstaculos :: [Palo] -> Jugador -> [Obstaculo] -> Palo
-seleccionarPaloParaObstaculos [unPalo] _ _ = unPalo
-seleccionarPaloParaObstaculos (palo1:palo2:palos) persona obstaculos 
-    | cuantosObstaculos obstaculos (golpe palo1 persona) > cuantosObstaculos obstaculos (golpe palo2 persona) = seleccionarPaloParaObstaculos (palo1:palos) persona obstaculos
-    | otherwise = seleccionarPaloParaObstaculos (palo2:palos) persona obstaculos
-
-
--- -- Punto 5
+-- Punto 5
 jugadores :: [(Jugador, Puntos)] -> [Jugador]
 jugadores = map fst
 
