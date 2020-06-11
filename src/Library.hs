@@ -142,6 +142,3 @@ determinarGanador :: [(Jugador, Puntos)] -> Jugador
 determinarGanador [unPuntaje] = fst unPuntaje
 determinarGanador (p1:p2:puntajes) | snd p1 > snd p2 = determinarGanador (p1:puntajes)
                                    | otherwise = determinarGanador (p2:puntajes)
-
-falopa :: [(Jugador, Puntos)]
-falopa = [(bart,10),(todd,2),(rafa,4)]
