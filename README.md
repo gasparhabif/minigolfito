@@ -1,7 +1,5 @@
-# ejercicio-alumno
+# Minigolfito 2020
 
 ## Integrantes
 
-- integrante1 (usuario github)
-- integrante2 (usuario github)
-...
+- Gaspar Habif (gasparhabif)
